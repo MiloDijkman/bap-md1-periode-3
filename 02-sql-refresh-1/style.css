@@ -1,0 +1,46 @@
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+}
+
+.all{
+  background-color: #333;
+  margin: 20px;
+  padding: 10px;
+}
+
+.call{
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 2em;
+}
+
+.id, .artiest, .titel, .album, .duur{
+  color: white;
+  text-align: center;
+  font-family: 'Roboto Condensed';
+
+}
+
+.duur{
+  margin-bottom: 10px;
+}
+
+.id, .titel{
+  font-weight: 900;
+}
+
+.titel{
+  border-bottom: 1px solid white;
+  margin-top: 5px;
+  border-radius: 5%;
+}
+
+
+.image{
+  max-width: 100%;
+  border-radius: 10px;
+}
