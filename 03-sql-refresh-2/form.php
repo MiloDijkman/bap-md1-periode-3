@@ -36,6 +36,7 @@
 
        <input type="submit" /></p>
     </form>
+    <input type='button'value='Terug naar de tracks' class="btn" onclick="document.location.href='index.php';"/>
 
   </body>
 </html>

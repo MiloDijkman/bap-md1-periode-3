@@ -24,7 +24,7 @@ try {
     $connection = new PDO('mysql:host='.$hostname.';dbname='.$database, $username, $password);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = 'INSERT INTO afspeellijst (titel, artiest, album, duur, afbeelding)
+$sql = 'INSERT INTO `afspeellijst` (`titel`, `artiest`, `album`, `duur`, `afbeelding`)
         VALUES (:titel, :artiest, :album, :duur, :afbeelding)';
       $statement = $connection->prepare($sql);
 
