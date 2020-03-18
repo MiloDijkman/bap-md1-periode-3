@@ -1,4 +1,18 @@
 <?php
+require '../functions.php';
+
+$connection = dbConnect();
+
+// Deze verbinding kun je weer gebruiken voor queries
+try {
+    $statement = $connection->query('SELECT * FROM afspeellijst');
+}catch (PDOException $e){
+    echo $e->getMessage();
+    exit();
+}
+
+?>
+<?php
 $titel = $_POST['titel'];
 $artiest = $_POST['artiest'];
 $album = $_POST['album'];
@@ -19,11 +33,6 @@ $password='';
 $database='muziek';
 
 
-
-try {
-    $connection = new PDO('mysql:host='.$hostname.';dbname='.$database, $username, $password);
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 $sql = 'INSERT INTO afspeellijst (titel, artiest, album, duur, afbeelding)
         VALUES (:titel, :artiest, :album, :duur, :afbeelding)';
       $statement = $connection->prepare($sql);
@@ -31,11 +40,7 @@ $sql = 'INSERT INTO afspeellijst (titel, artiest, album, duur, afbeelding)
       $statement->execute($parameters);
 
       header('location: index.php');
-}
 
-catch (PDOExeption $e) {
-  echo 'fout bij database verbinding:<br>' . $e->getMassage() . 'op regel' . $e->getline() . 'in' . $e->getFile();
-  exit;
-}
+
 
 ?>

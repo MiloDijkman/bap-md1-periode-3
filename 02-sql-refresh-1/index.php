@@ -1,21 +1,16 @@
 <?php
+require '../functions.php';
 
-$hostname='localhost';
-$username='root';
-$password='';
-$database='muziek';
+$connection = dbConnect();
 
-
+// Deze verbinding kun je weer gebruiken voor queries
 try {
-    $connection = new PDO('mysql:host='.$hostname.';dbname='.$database, $username, $password);
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = "SELECT titel, id, artiest, album, duur, afbeelding FROM afspeellijst"; // hier verander je de select naar wat je wilt selecten
-    $statement = $connection->query($query);
-    // echo "Verbinding is gemaakt!";
-} catch(PDOException $e) {
-    // echo 'Fout bij database verbinding: ' . $e->getMessage() . ' op regel ' . $e->getLine() . ' in ' . $e->getFile();
-    echo 'Fout bij SQL query:<br>' . $e->getMessage() . ' op regel ' . $e->getLine() . ' in ' . $e->getFile();
+    $statement = $connection->query('SELECT * FROM afspeellijst');
+}catch (PDOException $e){
+    echo $e->getMessage();
+    exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="nl" dir="ltr">
