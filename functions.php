@@ -21,5 +21,19 @@ function dbConnect()
 
 }
 
+function deleteTrack($id, $connection)
+{
+  $sql = 'DELETE FROM afspeellijst WHERE id = :id';
+  $statement = $connection->prepare($sql);
+
+  $parameters = [
+    'id' => $id
+  ];
+
+  $statement->execute($parameters);
+
+  return track;
+}
+
 
  ?>
